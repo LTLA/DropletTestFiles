@@ -1,0 +1,46 @@
+---
+title: Loading the 10X PBMC 5k dataset
+author: Aaron Lun
+output: BiocStyle::html_document
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error=FALSE, message=FALSE, warning=FALSE)
+library(BiocStyle)
+```
+
+# Introduction
+
+Original data source at https://support.10xgenomics.com/single-cell-gene-expression/datasets/3.1.0/5k_pbmc_protein_v3.
+
+```{r loading}
+base.url <- "https://cf.10xgenomics.com/samples/cell-exp/3.1.0/5k_pbmc_protein_v3"
+```
+
+# Listing the files 
+
+```{r}
+files <- c(
+    "5k_pbmc_protein_v3_molecule_info.h5",
+    "5k_pbmc_protein_v3_filtered_feature_bc_matrix.h5",
+    "5k_pbmc_protein_v3_raw_feature_bc_matrix.h5",
+    "5k_pbmc_protein_v3_filtered_feature_bc_matrix.tar.gz",
+    "5k_pbmc_protein_v3_raw_feature_bc_matrix.tar.gz"
+)
+```
+
+# Downloading 
+
+```{r}
+target <- "DropletTestFiles/tenx-3.1.0-pbmc5k/1.0.0"
+dir.create(target, recursive=TRUE)
+for (f in files) {
+    download.file(file.path(base.url, f), file.path(target, f))
+}
+```
+
+# Session information {-}
+
+```{r}
+sessionInfo()
+```

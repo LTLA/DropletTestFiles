@@ -1,0 +1,29 @@
+Package: DropletTestFiles
+Title: Test Files for Single-Cell Droplet Utilities
+Version: 0.99.0
+Date: 2020-08-17
+Authors@R: 
+    person("Aaron", "Lun", role=c("ctb", "cre"), email="infinite.monkeys.with.keyboards@gmail.com")
+Description: Assorted files generated from droplet-based single-cell protocols,
+    to be used for testing functions in DropletUtils. 
+License: CC0
+NeedsCompilation: no
+Imports:
+    ExperimentHub
+Suggests: 
+    BiocStyle, 
+    knitr, 
+    rmarkdown,
+    testthat,
+    DropletUtils
+VignetteBuilder: knitr
+Encoding: UTF-8
+biocViews: 
+    ExperimentHub,
+    ExperimentData, 
+    ExpressionData, 
+    SequencingData, 
+    RNASeqData,
+    SingleCellData
+BuildResaveData: no
+RoxygenNote: 7.1.1

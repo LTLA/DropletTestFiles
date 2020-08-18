@@ -31,7 +31,7 @@ files <- c(
 # Downloading 
 
 ```{r}
-target <- "DropletTestFiles/tenx-pbmc4k/1.0.0"
+target <- "DropletTestFiles/tenx-2.1.0-pbmc4k/1.0.0"
 dir.create(target, recursive=TRUE)
 for (f in files) {
     download.file(file.path(base.url, f), file.path(target, f))

@@ -9,6 +9,7 @@ Description: Assorted files generated from droplet-based single-cell protocols,
 License: CC0
 NeedsCompilation: no
 Imports:
+    utils,
     ExperimentHub
 Suggests: 
     BiocStyle, 

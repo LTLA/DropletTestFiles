@@ -5,12 +5,17 @@ Date: 2020-08-17
 Authors@R: 
     person("Aaron", "Lun", role=c("ctb", "cre"), email="infinite.monkeys.with.keyboards@gmail.com")
 Description: Assorted files generated from droplet-based single-cell protocols,
-    to be used for testing functions in DropletUtils. 
+    to be used for testing functions in DropletUtils. Primarily intended for
+    storing files that directly come out of processing pipelines like 10X
+    Genomics' CellRanger software, prior to the formation of a
+    SingleCellExperiment object. Unlike other packages, this is not designed
+    to provide objects that are immediately ready for analysis.
 License: CC0
 NeedsCompilation: no
 Imports:
     utils,
-    ExperimentHub
+    ExperimentHub,
+    AnnotationHub
 Suggests: 
     BiocStyle, 
     knitr, 

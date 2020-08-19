@@ -1,0 +1,60 @@
+---
+title: "Test files for utilities to process droplet-based single cell data"
+author: 
+- name: Aaron Lun
+  email: infinite.monkeys.with.keyboards@gmail.com
+package: DropletTestFiles 
+output:
+  BiocStyle::html_document
+vignette: >
+  %\VignetteIndexEntry{Test files for droplet-based single-cell utilities}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Motivation 
+
+The `r Biocpkg("DropletTestFiles")` package contains files for testing droplet-based utilities,
+such as those in the `r Biocpkg("DropletUtils")` package.
+These files are literally the raw output of pipelines like 10X Genomics' CellRanger software suite,
+and are usually not in an (immediately) analysis-ready state.
+After all, the idea is to provide some material to test the utilities to get to such a state!
+
+# Functions
+
+This package doesn't do anything except pull down and serve up files, so there's not much to talk about here.
+There are two convenience functions to help obtain content from `r Biocpkg("ExperimentHub")`.
+The first is to list all available resources managed by `r Biocpkg("DropletTestFiles")`:
+
+```{r}
+out <- listTestFiles()
+out
+```
+
+The second is to actually obtain a resource.
+This is provided in the form of a (read-only!) path on which further operations can be applied.
+
+```{r}
+getTestFile(out$rdatapath[1])
+```
+
+Currently, all of the files come from 10X Genomics datasets.
+As such, we will see a lot of filtered/raw count matrices, molecule information files and HDF5 barcode matrices.
+We refer readers to the (relevant section)[https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/output/overview] of the 10X Genomics website for more details.
+
+# Example 
+
+Here, we obtain a path to a filtered HDF5 matrix and read it in with a `r Biocpkg("DropletUtils")` function.
+
+```{r}
+library(DropletUtils)
+path <- getTestFile("tenx-3.1.0-pbmc5k/filtered_matrix.h5", prefix=TRUE)
+sce <- read10xCounts(path, type="hdf5")
+sce
+```
+
+# Session information {-}
+
+```{r}
+sessionInfo()
+```

@@ -34,7 +34,7 @@ download10xData <- function(files, base, prefix, version, short, long, BiocVersi
         DataProvider="10X Genomics",
         Maintainer="Aaron Lun <infinite.monkeys.with.keyboards@gmail.com>",
         RDataClass="character",
-        DispatchClass="character",
+        DispatchClass="FilePath",
         stringsAsFactors = FALSE
     )
 }

@@ -1,11 +1,10 @@
 base.url <- "https://cf.10xgenomics.com/samples/cell-atac/1.2.0/atac_pbmc_1k_nextgem"
 
-files <- c(
-    `peak count matrix`="atac_pbmc_1k_nextgem_filtered_peak_bc_matrix.tar.gz",
-    `peak HDF5 matrix`="atac_pbmc_1k_nextgem_filtered_peak_bc_matrix.h5",
-    `motif count matrix`="atac_pbmc_1k_nextgem_filtered_tf_bc_matrix.tar.gz",
-    `motif HDF5 matrix`="atac_pbmc_1k_nextgem_filtered_tf_bc_matrix.h5"
-)
+files <- read.csv(text="name,description,output
+atac_pbmc_1k_nextgem_filtered_peak_bc_matrix.tar.gz,peak count matrix,peak.tar.gz
+atac_pbmc_1k_nextgem_filtered_peak_bc_matrix.h5,peak HDF5 matrix,peak.h5
+atac_pbmc_1k_nextgem_filtered_tf_bc_matrix.tar.gz,motif count matrix,motif.tar.gz
+atac_pbmc_1k_nextgem_filtered_tf_bc_matrix.h5,motif HDF5 matrix,motif.h5")
 
 prefix <- "tenx-atac-1.2.0-pbmc1k"
 version <- "1.0.0"

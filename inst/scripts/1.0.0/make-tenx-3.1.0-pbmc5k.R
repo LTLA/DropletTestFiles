@@ -1,12 +1,11 @@
 base.url <- "https://cf.10xgenomics.com/samples/cell-exp/3.1.0/5k_pbmc_protein_v3"
 
-files <- c(
-    `molecule information file`="5k_pbmc_protein_v3_molecule_info.h5",
-    `filtered HDF5 matrix`="5k_pbmc_protein_v3_filtered_feature_bc_matrix.h5",
-    `raw HDF5 matrix`="5k_pbmc_protein_v3_raw_feature_bc_matrix.h5",
-    `filtered count matrix`="5k_pbmc_protein_v3_filtered_feature_bc_matrix.tar.gz",
-    `raw count matrix`="5k_pbmc_protein_v3_raw_feature_bc_matrix.tar.gz"
-)
+files <- read.csv(text="name,description,output
+5k_pbmc_protein_v3_molecule_info.h5,molecule information file,mol_info.h5
+5k_pbmc_protein_v3_filtered_feature_bc_matrix.h5,filtered HDF5 matrix,filtered.h5
+5k_pbmc_protein_v3_raw_feature_bc_matrix.h5,raw HDF5 matrix,raw.h5
+5k_pbmc_protein_v3_filtered_feature_bc_matrix.tar.gz,filtered count matrix,filtered.tar.gz
+5k_pbmc_protein_v3_raw_feature_bc_matrix.tar.gz,raw count matrix,raw.tar.gz")
 
 prefix <- "tenx-3.1.0-pbmc5k"
 version <- "1.0.0"

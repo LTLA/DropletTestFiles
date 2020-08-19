@@ -1,11 +1,10 @@
 base.url <- "https://cf.10xgenomics.com/samples/cell-exp/2.1.0/pbmc4k"
 
-files <- c(
-    `raw count matrix`="pbmc4k_raw_gene_bc_matrices.tar.gz",
-    `filtered count matrix`="pbmc4k_filtered_gene_bc_matrices.tar.gz",
-    `raw HDF5 matrix`="pbmc4k_raw_gene_bc_matrices_h5.h5",
-    `molecule information file`="pbmc4k_molecule_info.h5"
-)
+files <- read.csv(text="name,description,output
+pbmc4k_raw_gene_bc_matrices.tar.gz,raw count matrix,raw.tar.gz
+pbmc4k_filtered_gene_bc_matrices.tar.gz,filtered count matrix,filtered.tar.gz
+pbmc4k_raw_gene_bc_matrices_h5.h5,raw HDF5 matrix,raw.h5
+pbmc4k_molecule_info.h5,molecule information file,mol_info.h5")
 
 prefix <- "tenx-2.1.0-pbmc4k"
 version <- "1.0.0"

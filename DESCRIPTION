@@ -10,7 +10,7 @@ Description: Assorted files generated from droplet-based single-cell protocols,
     Genomics' CellRanger software, prior to the formation of a
     SingleCellExperiment object. Unlike other packages, this is not designed
     to provide objects that are immediately ready for analysis.
-License: CC0
+License: GPL-3
 NeedsCompilation: no
 Imports:
     utils,

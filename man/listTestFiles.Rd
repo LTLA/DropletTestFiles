@@ -5,12 +5,18 @@
 \alias{getTestFile}
 \title{List available test files}
 \usage{
-listTestFiles(hub = ExperimentHub())
+listTestFiles(hub = ExperimentHub(), dataset = NULL, version = NULL)
 
 getTestFile(path, hub = ExperimentHub(), prefix = FALSE)
 }
 \arguments{
 \item{hub}{An \linkS4class{ExperimentHub} object.}
+
+\item{dataset}{String specifying the dataset to search for, e.g., \code{"tenx-2.1.0-pbmc4k"}.
+By default, files are listed for all datasets.}
+
+\item{version}{String specifying the version of the datasets to search for.
+By default, files are listed for all versions.}
 
 \item{path}{String containing the \code{RDataPath} of the resource of interest.}
 
@@ -21,6 +27,10 @@ A \linkS4class{DataFrame} containing information on all relevant test files.
 }
 \description{
 List all test files managed by \pkg{DropletTestFiles} on \pkg{ExperimentHub}.
+}
+\details{
+Versions refer to those of the \pkg{DropletTestFiles} package itself,
+and refer to the state of the dataset at that version of the package.
 }
 \examples{
 out <- listTestFiles()

@@ -7,7 +7,7 @@ files <- read.csv(text="name,description,output
 5k_pbmc_protein_v3_filtered_feature_bc_matrix.tar.gz,filtered count matrix,filtered.tar.gz
 5k_pbmc_protein_v3_raw_feature_bc_matrix.tar.gz,raw count matrix,raw.tar.gz")
 
-prefix <- "tenx-3.1.0-pbmc5k"
+prefix <- "tenx-3.1.0-pbmc5k_protein"
 version <- "1.0.0"
 
 out <- DropletTestFiles:::download10xData(

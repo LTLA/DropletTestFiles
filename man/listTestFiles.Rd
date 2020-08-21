@@ -5,7 +5,12 @@
 \alias{getTestFile}
 \title{List available test files}
 \usage{
-listTestFiles(hub = ExperimentHub(), dataset = NULL, version = NULL)
+listTestFiles(
+  hub = ExperimentHub(),
+  dataset = NULL,
+  version = NULL,
+  latest = TRUE
+)
 
 getTestFile(path, hub = ExperimentHub(), prefix = FALSE)
 }
@@ -15,8 +20,10 @@ getTestFile(path, hub = ExperimentHub(), prefix = FALSE)
 \item{dataset}{String specifying the dataset to search for, e.g., \code{"tenx-2.1.0-pbmc4k"}.
 By default, files are listed for all datasets.}
 
-\item{version}{String specifying the version of the datasets to search for.
-By default, files are listed for all versions.}
+\item{version}{String specifying the version of the files to search for.}
+
+\item{latest}{Logical scalar indicating whether the latest version of each file should be presented.
+Only used if \code{version=NULL}; if \code{FALSE}, entries are returned for all versions.}
 
 \item{path}{String containing the \code{RDataPath} of the resource of interest.}
 
@@ -30,19 +37,23 @@ List all test files managed by \pkg{DropletTestFiles} on \pkg{ExperimentHub}.
 }
 \details{
 Versions refer to those of the \pkg{DropletTestFiles} package itself,
-and refer to the state of the dataset at that version of the package.
+and refer to the version of the package in which a particular dataset was added.
 }
 \examples{
-out <- listTestFiles()
+# Getting everything:
+listTestFiles()
+
+# Getting all files for a particular dataset.
+out <- listTestFiles(dataset="tenx-2.1.0-pbmc4k")
 out
 
-\dontrun{
 # Downloading a resource to a local file, using an EH number:
-ExperimentHub()[[rownames(out)[1]]]
+library(ExperimentHub)
+hub <- ExperimentHub()
+hub[[rownames(out)[1]]]
 
-# Downloading a resource to a local file, using an RDataPath:
+# Downloading the same resource using an RDataPath:
 getTestFile(out$rdatapath[1])
-}
 
 }
 \author{

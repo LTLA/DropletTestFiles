@@ -12,6 +12,11 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error=FALSE, message=FALSE, warning=FALSE)
+library(BiocStyle)
+```
+
 # Motivation 
 
 The `r Biocpkg("DropletTestFiles")` package contains files for testing droplet-based utilities,
@@ -27,6 +32,7 @@ There are two convenience functions to help obtain content from `r Biocpkg("Expe
 The first is to list all available resources managed by `r Biocpkg("DropletTestFiles")`:
 
 ```{r}
+library(DropletTestFiles)
 out <- listTestFiles()
 out
 ```

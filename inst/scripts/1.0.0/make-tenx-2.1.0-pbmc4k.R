@@ -15,7 +15,7 @@ out <- DropletTestFiles:::download10xData(
     prefix=prefix,
     version=version,
     short="10X PBMC 4k",
-    long="10X Genomics PBMC 4K single-cell RNA-seq (version 2 chemistry, CellRanger 2.1.0)",
+    long="10X Genomics single-cell RNA-seq for 4K PBMCs from a healthy donor (3' v2 chemistry, CellRanger 2.1.0)",
     BiocVersion="3.12",
     Genome="hg38",
     SourceUrl="https://support.10xgenomics.com/single-cell-gene-expression/datasets/2.1.0/pbmc4k"

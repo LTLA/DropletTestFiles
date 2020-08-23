@@ -7,7 +7,7 @@ files <- read.csv(text="name,description,output
 5k_pbmc_protein_v3_filtered_feature_bc_matrix.tar.gz,filtered count matrix,filtered.tar.gz
 5k_pbmc_protein_v3_raw_feature_bc_matrix.tar.gz,raw count matrix,raw.tar.gz")
 
-prefix <- "tenx-3.1.0-pbmc5k_protein"
+prefix <- "tenx-3.1.0-5k_pbmc_protein_v3"
 version <- "1.0.0"
 
 out <- DropletTestFiles:::download10xData(
@@ -15,8 +15,8 @@ out <- DropletTestFiles:::download10xData(
     base=base.url,
     prefix=prefix,
     version=version,
-    short="10X PBMC 5k",
-    long="10X Genomics PBMC 5K single-cell RNA-seq with cell surface proteins (version 3 chemistry, CellRanger 3.1.0)",
+    short="10X PBMC 5k with proteins",
+    long="10X Genomics single-cell RNA-seq with cell surface proteins for 5K PBMCs from a healthy donor (3' v3 chemistry, CellRanger 3.1.0)",
     BiocVersion="3.12",
     Genome="hg38",
     SourceUrl="https://support.10xgenomics.com/single-cell-gene-expression/datasets/3.1.0/5k_pbmc_protein_v3"

@@ -1,4 +1,4 @@
-#!/bin/R
+# Downloading and unpacking the data.
 system2("curl", paste(
     "https://jmlab-gitlab.cruk.cam.ac.uk/Jonny/BarcodeSwapping2017Data/raw/master/bcswap_data.tar.gz",
     " > bcswap_data.tar.gz"))
@@ -10,10 +10,11 @@ system2("mv", paste("data/molecule_info/*", target))
 
 orig_files <- dir(target, recursive = TRUE)
 
-#name tweaks for consistency
+# Adjusting the names for consistency.
 files <- dir(file.path(target, "hiseq_2500_run2"), full.names = TRUE)
 system2("mv", c(file.path(target, "hiseq_2500_run2"),
                 file.path(target, "hiseq_2500_exp2")))
+
 files <- dir(file.path(target, "hiseq_2500_exp2"), full.names = TRUE)
 file.rename(
     files,
@@ -22,14 +23,13 @@ file.rename(
 files <- dir(target, recursive = TRUE, full.names = TRUE)
 file.rename(files, gsub("molecule", "mol", files))
 
-
-#metadata
+# Creating the metadata
 files <- dir(target, recursive = TRUE, full.names = TRUE)
 sequencer <- ifelse(grepl("4000", files), "HiSeq 4000", "HiSeq 2500")
 experiment <- ifelse(grepl("exp2", files), 2, 1)
 barcode <- regmatches(files, regexpr("[A-Z][1-9]", files))
 title <- paste0(sequencer, "-sequenced mammary epithelial cells (expt. ", experiment, " barcode ", barcode, ")")
-desc <- paste0("Molecule information file for ", sequencer, "-sequenced single-cell RNA-seq data (experiment ", experiment, ", using 10x barcode ", barcode, "; 10x 3' v2 kit)")
+desc <- paste0("Molecule information file for ", sequencer, "-sequenced single-cell RNA-seq of mouse mammary epithelial cells (experiment ", experiment, " using 10x barcode ", barcode, " with 3' v2 chemistry)")
 meta <- data.frame(
     Title = title,
     Description = desc,

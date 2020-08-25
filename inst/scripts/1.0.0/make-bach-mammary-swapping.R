@@ -4,7 +4,7 @@ system2("curl", paste(
     " > bcswap_data.tar.gz"))
 system2("tar", "-xzf bcswap_data.tar.gz")
 
-target <- file.path("DropletTestFiles", "bach", "1.0.0")
+target <- file.path("DropletTestFiles", "bach-mammary-swapping", "1.0.0")
 dir.create(target, recursive=TRUE)
 system2("mv", paste("data/molecule_info/*", target))
 
@@ -49,4 +49,4 @@ meta <- data.frame(
     stringsAsFactors = FALSE
 )
 write.csv(meta, row.names=FALSE,
-    file="../../extdata/1.0.0/metadata-bach.csv")
+    file="../../extdata/1.0.0/metadata-bach-mammary-swapping.csv")

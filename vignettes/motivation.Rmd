@@ -54,7 +54,7 @@ Here, we obtain a path to a filtered HDF5 matrix and read it in with a `r Biocpk
 
 ```{r}
 library(DropletUtils)
-path <- getTestFile("tenx-3.1.0-pbmc5k/filtered_matrix.h5", prefix=TRUE)
+path <- getTestFile("tenx-3.1.0-5k_pbmc_protein_v3/1.0.0/filtered.h5", prefix=TRUE)
 sce <- read10xCounts(path, type="hdf5")
 sce
 ```

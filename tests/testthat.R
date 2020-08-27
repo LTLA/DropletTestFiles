@@ -1,3 +1,3 @@
 library(testthat)
-library(DropletTestData)
-test_check("DropletTestData")
+library(DropletTestFiles)
+test_check("DropletTestFiles")

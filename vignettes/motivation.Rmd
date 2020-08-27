@@ -51,11 +51,12 @@ We refer readers to the (relevant section)[https://support.10xgenomics.com/singl
 # Example 
 
 Here, we obtain a path to a filtered HDF5 matrix and read it in with a `r Biocpkg("DropletUtils")` function.
+This produces a `SingleCellExperiment` object for use in various Bioconductor pipelines.
 
 ```{r}
 library(DropletUtils)
 path <- getTestFile("tenx-3.1.0-5k_pbmc_protein_v3/1.0.0/filtered.h5", prefix=TRUE)
-sce <- read10xCounts(path, type="hdf5")
+sce <- read10xCounts(path, type="HDF5")
 sce
 ```
 

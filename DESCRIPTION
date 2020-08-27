@@ -1,6 +1,6 @@
 Package: DropletTestFiles
 Title: Test Files for Single-Cell Droplet Utilities
-Version: 0.99.3
+Version: 0.99.4
 Date: 2020-08-27
 Authors@R: 
     person("Aaron", "Lun", role=c("ctb", "cre"), email="infinite.monkeys.with.keyboards@gmail.com")
@@ -15,7 +15,8 @@ NeedsCompilation: no
 Imports:
     utils,
     ExperimentHub,
-    AnnotationHub
+    AnnotationHub,
+    S4Vectors
 Suggests: 
     BiocStyle, 
     knitr, 

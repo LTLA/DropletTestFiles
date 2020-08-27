@@ -44,7 +44,7 @@ and refer to the version of the package in which a particular dataset was added.
 listTestFiles()
 
 # Getting all files for a particular dataset.
-out <- listTestFiles(dataset="tenx-2.1.0-pbmc4k")
+out <- listTestFiles(dataset="tenx-3.1.0-5k_pbmc_protein_v3")
 out
 
 # Downloading a resource to a local file, using an EH number:

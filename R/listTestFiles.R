@@ -33,7 +33,7 @@
 #' hub[[rownames(out)[1]]]
 #'
 #' # Downloading the same resource using an RDataPath:
-#' getTestFile(out$rdatapath[1])
+#' getTestFile(out$rdatapath[1], prefix=FALSE)
 #'
 #' @export
 #' @importFrom ExperimentHub ExperimentHub
@@ -73,7 +73,7 @@ listTestFiles <- function(hub=ExperimentHub(), dataset=NULL, version=NULL, lates
 
 #' @export
 #' @rdname listTestFiles
-getTestFile <- function(path, hub=ExperimentHub(), prefix=FALSE) {
+getTestFile <- function(path, hub=ExperimentHub(), prefix=TRUE) {
     if (prefix) {
         path <- paste0("DropletTestFiles/", path)
     }

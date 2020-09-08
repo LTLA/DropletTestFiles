@@ -25,6 +25,12 @@ test_that("getTestFile works as expected", {
 
     expect_identical(
         hub[[rownames(out)[1]]],
-        getTestFile(out$rdatapath[1])
+        getTestFile(out$rdatapath[1], prefix=FALSE)
+    )
+
+    # Auto-prefixes.
+    expect_identical(
+        hub[[rownames(out)[1]]],
+        getTestFile(sub("DropletTestFiles/", "", out$rdatapath[1]))
     )
 })

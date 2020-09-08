@@ -12,7 +12,7 @@ listTestFiles(
   latest = TRUE
 )
 
-getTestFile(path, hub = ExperimentHub(), prefix = FALSE)
+getTestFile(path, hub = ExperimentHub(), prefix = TRUE)
 }
 \arguments{
 \item{hub}{An \linkS4class{ExperimentHub} object.}
@@ -53,7 +53,7 @@ hub <- ExperimentHub()
 hub[[rownames(out)[1]]]
 
 # Downloading the same resource using an RDataPath:
-getTestFile(out$rdatapath[1])
+getTestFile(out$rdatapath[1], prefix=FALSE)
 
 }
 \author{

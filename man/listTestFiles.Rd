@@ -30,7 +30,9 @@ Only used if \code{version=NULL}; if \code{FALSE}, entries are returned for all 
 \item{prefix}{Logical scalar indicating whether \code{path} should be prefixed with \code{"DropletTestFiles/"}.}
 }
 \value{
-A \linkS4class{DataFrame} containing information on all relevant test files.
+A \linkS4class{DataFrame} containing information on all relevant test files (one per row).
+Of particular interest are the columns \code{file.dataset}, \code{file.version} and \code{file.name},
+containing the dataset, version and name of each test file.
 }
 \description{
 List all test files managed by \pkg{DropletTestFiles} on \pkg{ExperimentHub}.

@@ -15,7 +15,9 @@
 #' Versions refer to those of the \pkg{DropletTestFiles} package itself,
 #' and refer to the version of the package in which a particular dataset was added.
 #'
-#' @return A \linkS4class{DataFrame} containing information on all relevant test files.
+#' @return A \linkS4class{DataFrame} containing information on all relevant test files (one per row).
+#' Of particular interest are the columns \code{file.dataset}, \code{file.version} and \code{file.name},
+#' containing the dataset, version and name of each test file.
 #' 
 #' @author Aaron Lun
 #'
@@ -53,13 +55,13 @@ listTestFiles <- function(hub=ExperimentHub(), dataset=NULL, version=NULL, lates
 
     candidates <- mcols(hub[grepl(q, hub$rdatapath)])
 
-    if (is.null(version) && latest) {
-        # Finding the latest version of each file.
-        fragments <- strsplit(candidates$rdatapath, "/")
-        datasets <- vapply(fragments, "[", i=2, "")
-        versions <- vapply(fragments, "[", i=3, "")
-        fname <- vapply(fragments, "[", i=4, "")
+    fragments <- strsplit(candidates$rdatapath, "/")
+    candidates$file.dataset <- datasets <- vapply(fragments, "[", i=2, "")
+    candidates$file.version <- versions <- vapply(fragments, "[", i=3, "")
+    candidates$file.name <- fname <- vapply(fragments, "[", i=4, "")
 
+    # Finding the latest version of each file.
+    if (is.null(version) && latest) {
         V <- package_version(versions)
         sans.version <- paste0(datasets, "/", fname)
         X <- split(V, sans.version)

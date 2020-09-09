@@ -41,6 +41,7 @@
 #' @importFrom ExperimentHub ExperimentHub
 #' @importFrom AnnotationHub query
 #' @importFrom S4Vectors mcols
+#' @importFrom utils tail
 listTestFiles <- function(hub=ExperimentHub(), dataset=NULL, version=NULL, latest=TRUE) {
     q <- "^DropletTestFiles"
 
@@ -58,7 +59,7 @@ listTestFiles <- function(hub=ExperimentHub(), dataset=NULL, version=NULL, lates
     fragments <- strsplit(candidates$rdatapath, "/")
     candidates$file.dataset <- datasets <- vapply(fragments, "[", i=2, "")
     candidates$file.version <- versions <- vapply(fragments, "[", i=3, "")
-    candidates$file.name <- fname <- vapply(fragments, "[", i=4, "")
+    candidates$file.name <- fname <- vapply(fragments, function(x) paste(tail(x, -3), collapse="/"), "")
 
     # Finding the latest version of each file.
     if (is.null(version) && latest) {

@@ -41,7 +41,7 @@ The second is to actually obtain a resource.
 This is provided in the form of a (read-only!) path on which further operations can be applied.
 
 ```{r}
-getTestFile(out$rdatapath[1])
+getTestFile(out$rdatapath[1], prefix=FALSE)
 ```
 
 Currently, all of the files come from 10X Genomics datasets.
